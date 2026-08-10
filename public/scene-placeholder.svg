@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="場景預留圖">
+  <rect width="1280" height="720" fill="#243434"/>
+  <path d="M0 534 250 350l170 113 248-224 232 179 141-97 238 213v186H0z" fill="#1b2525"/>
+  <circle cx="1016" cy="157" r="65" fill="#d4a843" opacity=".85"/>
+  <path d="M0 606h1280" stroke="#d4a843" stroke-width="3" opacity=".55"/>
+</svg>

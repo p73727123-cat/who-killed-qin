@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="秤仔圖樣">
+  <rect width="640" height="360" fill="#1b2525"/>
+  <circle cx="320" cy="180" r="126" fill="none" stroke="#d4a843" stroke-width="5"/>
+  <path d="M164 168h312M320 89v184M221 168l-57 106h114zm255 0l-57 106h114z" fill="none" stroke="#d4a843" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/>
+</svg>

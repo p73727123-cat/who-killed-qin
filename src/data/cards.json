@@ -1,0 +1,89 @@
+{
+  "ui": {
+    "collectionButtonLabel": "線索收藏",
+    "collectionTitle": "線索收藏",
+    "closeButtonLabel": "返回探索",
+    "lockedLabel": "尚未取得",
+    "placeholderImage": "/card-emblem.svg",
+    "typeLabels": {
+      "character": "人物",
+      "item": "物件",
+      "event": "事件",
+      "evidence": "證據",
+      "theme": "主題"
+    },
+    "detailLabels": {
+      "clue": "線索",
+      "textualEvidence": "文本證據",
+      "reasoningHint": "推理提示"
+    }
+  },
+  "cards": [
+    {
+      "id": "card-qin-de-can",
+      "name": "秦得參",
+      "type": "character",
+      "image": "/assets/cards/char_qin.png",
+      "description": "事件核心人物，其遭遇牽動整場調查。",
+      "clue": "秦得參帶著秤仔前往市場，並在返家後顯得異常不安。",
+      "textualEvidence": "秦妻指出，他從市場回來後神色一直不對。",
+      "reasoningHint": "先重建他離家、到市場、返家的時間線。",
+      "relatedCharacterIds": ["qin-de-can"]
+    },
+    {
+      "id": "card-patrol-officer",
+      "name": "巡警",
+      "type": "character",
+      "image": "/assets/cards/char_police.png",
+      "description": "市場衝突的到場處理者。",
+      "clue": "巡警抵達市場時，衝突已無法收拾。",
+      "textualEvidence": "巡警承認自己到場時，事情已經失控。",
+      "reasoningHint": "確認巡警到場前後有哪些人能控制現場。",
+      "relatedCharacterIds": ["patrol-officer"]
+    },
+    {
+      "id": "card-scale",
+      "name": "一桿秤仔",
+      "type": "item",
+      "image": "/assets/cards/item_scale.png",
+      "description": "引發爭議的關鍵物件。",
+      "clue": "秤仔被帶往衙門留存，可能與市場指控有關。",
+      "textualEvidence": "巡警表示，秤仔已被帶去衙門。",
+      "reasoningHint": "秤仔是否真的不公，或只是衝突的藉口？",
+      "relatedCharacterIds": ["qin-de-can"]
+    },
+    {
+      "id": "card-jinhua",
+      "name": "金花",
+      "type": "character",
+      "image": "/assets/cards/item_goldflower.png",
+      "description": "目擊市場爭執的重要人物。",
+      "clue": "金花曾見過秦得參在市場與人爭執。",
+      "textualEvidence": "秦妻提到金花掌握市場衝突的目擊資訊。",
+      "reasoningHint": "尋找金花的證詞，補齊市場現場的缺口。",
+      "relatedCharacterIds": []
+    },
+    {
+      "id": "card-market-conflict",
+      "name": "市場衝突",
+      "type": "event",
+      "image": "/assets/cards/event_market.png",
+      "description": "由秤具爭議引發的公開衝突。",
+      "clue": "有人指控秦得參用秤不公，群眾迅速圍上來。",
+      "textualEvidence": "巡警說明，市場裡的爭執不是偶然。",
+      "reasoningHint": "區分直接衝突與蓄意煽動的可能性。",
+      "relatedCharacterIds": ["qin-de-can", "patrol-officer"]
+    },
+    {
+      "id": "card-court-judgment",
+      "name": "衙門判決",
+      "type": "evidence",
+      "image": "/assets/cards/event_court.png",
+      "description": "衙門對市場衝突所作的正式處置。",
+      "clue": "判決處理了眼前衝突，卻未必揭露全部真相。",
+      "textualEvidence": "法官提醒，卷宗寫下的未必就是所有真相。",
+      "reasoningHint": "比較官方判決與人物證詞之間的落差。",
+      "relatedCharacterIds": ["judge"]
+    }
+  ]
+}

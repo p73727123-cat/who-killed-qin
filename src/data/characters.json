@@ -1,0 +1,28 @@
+{
+  "characters": [
+    {
+      "id": "qin-de-can",
+      "name": "秦得參",
+      "description": "秦家的主人，也是這場事件的核心人物。",
+      "portraitImage": "/assets/portraits/qin_de_can.png"
+    },
+    {
+      "id": "qin-wife",
+      "name": "秦妻",
+      "description": "與秦得參同住，掌握秦家日常的細節。",
+      "portraitImage": "/assets/portraits/qin_wife.png"
+    },
+    {
+      "id": "patrol-officer",
+      "name": "巡警",
+      "description": "負責維持村落與市場秩序的巡查人員。",
+      "portraitImage": "/assets/portraits/police.png"
+    },
+    {
+      "id": "judge",
+      "name": "法官",
+      "description": "在衙門作出判決的人。",
+      "portraitImage": "/assets/portraits/judge.png"
+    }
+  ]
+}

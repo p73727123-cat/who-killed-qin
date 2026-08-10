@@ -1,0 +1,56 @@
+{
+  "teacher": {
+    "studentId": {
+      "title": "學生代號",
+      "description": "請輸入學生代號後開始調查。系統不會蒐集姓名。",
+      "fieldLabel": "學生代號",
+      "placeholder": "例如：101、A01",
+      "pattern": "^(?:\\d{3}|[A-Za-z]\\d{2})$",
+      "validationMessage": "請輸入 3 碼數字，或 1 個英文字母加 2 碼數字。",
+      "submitButtonLabel": "確認代號，開始調查"
+    },
+    "result": {
+      "studentIdLabel": "學生代號",
+      "endingLabel": "推理結局",
+      "collectedCardsLabel": "取得卡牌數",
+      "completionLabel": "完成率",
+      "completionSuffix": "%",
+      "completedAtLabel": "完成時間"
+    },
+    "teacherPage": {
+      "title": "教師版結果紀錄",
+      "description": "本頁只顯示此瀏覽器所儲存的學生推理結果。",
+      "emptyState": "目前尚無學生完成紀錄。",
+      "exportButtonLabel": "匯出 CSV",
+      "backButtonLabel": "返回遊戲",
+      "teacherInfoButtonLabel": "Google Sheet 說明",
+      "table": {
+        "studentId": "學生代號",
+        "ending": "推理結局",
+        "completedAt": "完成時間"
+      }
+    },
+    "submission": {
+      "submitButtonLabel": "提交推理結果",
+      "submittingButtonLabel": "送出中…",
+      "successMessage": "你的推理結果已送出。",
+      "successThanks": "感謝參與《誰殺了秦得參？》",
+      "errorMessage": "送出失敗，請稍後再試。"
+    },
+    "teacherSummary": {
+      "title": "Google Sheet 教師說明",
+      "paragraphs": [
+        "請先在 Google Apps Script 部署 Web App，並將部署網址填入 VITE_GOOGLE_SHEETS_API_URL。",
+        "學生完成推理後，需自行按下「提交推理結果」，資料才會送至 Google Sheet。",
+        "請在綁定 Apps Script 的 Google Sheet 中查看新增列；每列包含學生代號、結局、推理答案、卡牌數、完成率與完成時間。",
+        "本機的 /teacher 頁只顯示目前瀏覽器保存的結果紀錄；跨裝置或跨瀏覽器資料請以 Google Sheet 為準。"
+      ],
+      "backButtonLabel": "返回教師紀錄"
+    },
+    "recordFields": {
+      "suspectQuestionId": "direct-impact",
+      "causesQuestionId": "tragedy-factors",
+      "symbolismQuestionId": "scale-symbol"
+    }
+  }
+}

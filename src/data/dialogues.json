@@ -1,0 +1,150 @@
+{
+  "ui": {
+    "home": {
+      "title": "誰殺了秦得參？",
+      "subtitle": "一桿秤仔・文學推理 RPG",
+      "startButtonLabel": "開始調查",
+      "startSceneId": "qin-home"
+    },
+    "scene": {
+      "locationLabel": "調查地點"
+    },
+    "exploration": {
+      "talkButtonLabel": "交談",
+      "navigationLabel": "已解鎖地點",
+      "restartButtonLabel": "重新開始"
+    }
+  },
+  "dialogues": [
+    {
+      "id": "qin-wife-intro",
+      "characterId": "qin-wife",
+      "sceneId": "qin-home",
+      "text": "你想知道得參的事？我只能告訴你，他從市場回來後，神色一直不對。",
+      "isEntryPoint": true,
+      "choices": [
+        {
+          "id": "qin-wife-ask-qin",
+          "text": "請告訴我秦得參當日的行蹤。",
+          "next": "qin-wife-qin-card"
+        }
+      ]
+    },
+    {
+      "id": "qin-wife-qin-card",
+      "characterId": "qin-wife",
+      "sceneId": "qin-home",
+      "text": "他帶著秤仔出門，說市場裡有人故意刁難他。",
+      "choices": [
+        {
+          "id": "qin-wife-receive-qin-card",
+          "text": "記下秦得參的線索。",
+          "next": "qin-wife-jinhua-card",
+          "reward": {
+            "cardIds": ["card-qin-de-can"]
+          },
+          "completedEvent": "received-qin-de-can-card"
+        }
+      ]
+    },
+    {
+      "id": "qin-wife-jinhua-card",
+      "characterId": "qin-wife",
+      "sceneId": "qin-home",
+      "text": "還有金花。她見過得參在市場與人爭執，也許能找到更多線索。",
+      "choices": [
+        {
+          "id": "qin-wife-receive-jinhua-card",
+          "text": "記下金花的線索，前往市場。",
+          "next": null,
+          "reward": {
+            "cardIds": ["card-jinhua"]
+          },
+          "unlockScene": "market"
+          ,"completedEvent": "unlocked-market"
+        }
+      ]
+    },
+    {
+      "id": "patrol-officer-intro",
+      "characterId": "patrol-officer",
+      "sceneId": "market",
+      "text": "市場那天確實起了衝突，但我到場時，事情已經無法收拾。",
+      "isEntryPoint": true,
+      "choices": [
+        {
+          "id": "patrol-officer-ask-scale",
+          "text": "秦得參的秤仔在哪裡？",
+          "next": "patrol-officer-scale-card"
+        }
+      ]
+    },
+    {
+      "id": "patrol-officer-scale-card",
+      "characterId": "patrol-officer",
+      "sceneId": "market",
+      "text": "秤仔被帶去衙門留存。它看似尋常，卻可能說明衝突的起因。",
+      "choices": [
+        {
+          "id": "patrol-officer-receive-scale-card",
+          "text": "記下秤仔的線索。",
+          "next": "patrol-officer-conflict-card",
+          "reward": {
+            "cardIds": ["card-scale"]
+          },
+          "completedEvent": "received-scale-card"
+        }
+      ]
+    },
+    {
+      "id": "patrol-officer-conflict-card",
+      "characterId": "patrol-officer",
+      "sceneId": "market",
+      "text": "爭執並非偶然。有人指控秦得參用秤不公，群眾很快圍了上來。",
+      "choices": [
+        {
+          "id": "patrol-officer-receive-conflict-card",
+          "text": "記下市場衝突，前往衙門。",
+          "next": null,
+          "reward": {
+            "cardIds": ["card-market-conflict"]
+          },
+          "unlockScene": "court"
+          ,"completedEvent": "unlocked-court"
+        }
+      ]
+    },
+    {
+      "id": "judge-intro",
+      "characterId": "judge",
+      "sceneId": "court",
+      "text": "判決寫在卷宗裡，但卷宗記下的未必就是全部真相。",
+      "isEntryPoint": true,
+      "choices": [
+        {
+          "id": "judge-ask-judgment",
+          "text": "請讓我查看衙門的判決。",
+          "next": "judge-judgment-card"
+        }
+      ]
+    },
+    {
+      "id": "judge-judgment-card",
+      "characterId": "judge",
+      "sceneId": "court",
+      "text": "這份判決只處理了眼前的衝突。若要找出真相，你得自己整理所有線索。",
+      "choices": [
+        {
+          "id": "judge-receive-judgment-card",
+          "text": "記下衙門判決，前往推理室。",
+          "next": null,
+          "reward": {
+            "cardIds": ["card-court-judgment"]
+          },
+          "unlockScene": "reasoning-room"
+          ,"completedEvent": "unlocked-reasoning-room"
+        }
+      ]
+    }
+  ]
+}

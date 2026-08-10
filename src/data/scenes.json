@@ -1,0 +1,136 @@
+{
+  "ui": {
+    "placeholderImage": "/scene-placeholder.svg"
+  },
+  "scenes": [
+    {
+      "id": "qin-home",
+      "name": "秦家",
+      "description": "秦得參一家居住的地方。",
+      "mode": "exploration",
+      "backgroundImage": "/assets/backgrounds/scene_qin_home.png",
+      "backgroundAlt": "秦家內部",
+      "characterIds": ["qin-wife"],
+      "cardIds": ["card-qin-de-can", "card-scale"],
+      "evidenceIds": [],
+      "hotspots": [
+        {
+          "id": "hotspot-qin-wife",
+          "type": "character",
+          "label": "秦妻",
+          "position": { "x": 61, "y": 62 },
+          "dialogueId": "qin-wife-intro",
+          "portraitImage": "/assets/portraits/qin_wife.png"
+        },
+        {
+          "id": "hotspot-qin-scale",
+          "type": "object",
+          "label": "一桿秤仔",
+          "position": { "x": 30, "y": 70 },
+          "image": "/assets/cards/item_scale.png",
+          "interactionText": "秤仔安靜地放在角落，秤桿上留著反覆使用的痕跡。"
+        }
+      ]
+    },
+    {
+      "id": "village",
+      "name": "村落",
+      "description": "事件發生後，流言逐漸蔓延的村落。",
+      "mode": "exploration",
+      "backgroundImage": "/assets/backgrounds/scene_village.png",
+      "backgroundAlt": "村落街道",
+      "characterIds": ["qin-wife", "patrol-officer"],
+      "cardIds": [],
+      "evidenceIds": [],
+      "hotspots": [
+        {
+          "id": "hotspot-village-notice",
+          "type": "object",
+          "label": "佈告欄",
+          "position": { "x": 50, "y": 48 },
+          "image": "/assets/backgrounds/scene_village.png",
+          "interactionText": "佈告欄上的字跡被雨水暈開，卻仍能看出人們對市場衝突的議論。"
+        }
+      ]
+    },
+    {
+      "id": "market",
+      "name": "市場",
+      "description": "人群與交易交會的市場。",
+      "mode": "exploration",
+      "backgroundImage": "/assets/backgrounds/scene_market.png",
+      "backgroundAlt": "市場攤位",
+      "characterIds": ["qin-de-can", "patrol-officer"],
+      "cardIds": ["card-market-conflict"],
+      "evidenceIds": [],
+      "hotspots": [
+        {
+          "id": "hotspot-patrol-officer",
+          "type": "character",
+          "label": "巡警",
+          "position": { "x": 57, "y": 59 },
+          "dialogueId": "patrol-officer-intro",
+          "portraitImage": "/assets/portraits/police.png"
+        },
+        {
+          "id": "hotspot-market-stall",
+          "type": "object",
+          "label": "市場攤位",
+          "position": { "x": 27, "y": 63 },
+          "image": "/assets/cards/event_market.png",
+          "interactionText": "攤位間仍留著當日人群聚集的空隙，爭執彷彿剛剛散去。"
+        }
+      ]
+    },
+    {
+      "id": "court",
+      "name": "衙門",
+      "description": "巡警與法官處理案件的衙門。",
+      "mode": "exploration",
+      "backgroundImage": "/assets/backgrounds/scene_court.png",
+      "backgroundAlt": "衙門公堂",
+      "characterIds": ["patrol-officer", "judge"],
+      "cardIds": ["card-court-judgment"],
+      "evidenceIds": [],
+      "hotspots": [
+        {
+          "id": "hotspot-judge",
+          "type": "character",
+          "label": "法官",
+          "position": { "x": 59, "y": 53 },
+          "dialogueId": "judge-intro",
+          "portraitImage": "/assets/portraits/judge.png"
+        },
+        {
+          "id": "hotspot-court-record",
+          "type": "object",
+          "label": "案件卷宗",
+          "position": { "x": 30, "y": 71 },
+          "image": "/assets/cards/event_court.png",
+          "interactionText": "卷宗依照規矩收好，卻無法替你回答那些沒有被寫進去的問題。"
+        }
+      ]
+    },
+    {
+      "id": "reasoning-room",
+      "name": "推理室",
+      "description": "整理線索、重建事件真相的地方。",
+      "mode": "deduction",
+      "backgroundImage": "/assets/backgrounds/scene_deduction_room.png",
+      "backgroundAlt": "整理線索的桌面",
+      "characterIds": [],
+      "cardIds": [],
+      "evidenceIds": [],
+      "hotspots": [
+        {
+          "id": "hotspot-clue-board",
+          "type": "object",
+          "label": "線索桌",
+          "position": { "x": 50, "y": 60 },
+          "image": "/assets/backgrounds/scene_deduction_room.png",
+          "interactionText": "所有線索都已攤在眼前，下一步是找出它們彼此矛盾的地方。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "deduction": {
+    "ui": {
+      "title": "誰殺了秦得參？",
+      "evidenceTitle": "選擇已取得的證據",
+      "submitButtonLabel": "提交推理",
+      "resetButtonLabel": "重新推理",
+      "completedEventId": "completed-final-deduction"
+    },
+    "questions": [
+      {
+        "id": "direct-impact",
+        "prompt": "誰最直接影響秦得參？",
+        "selectionMode": "single",
+        "options": [
+          { "id": "qin-de-can", "label": "秦得參" },
+          { "id": "patrol-officer", "label": "巡警" },
+          { "id": "qin-wife", "label": "秦妻" },
+          { "id": "judge", "label": "法官" }
+        ]
+      },
+      {
+        "id": "tragedy-factors",
+        "prompt": "哪些因素造成悲劇？",
+        "selectionMode": "multiple",
+        "options": [
+          { "id": "family-hardship", "label": "家庭困境" },
+          { "id": "disease", "label": "疾病" },
+          { "id": "power-system", "label": "權力制度" },
+          { "id": "legal-procedure", "label": "法律程序" }
+        ]
+      },
+      {
+        "id": "scale-symbol",
+        "prompt": "秤仔在故事中代表什麼？",
+        "selectionMode": "single",
+        "options": [
+          { "id": "tool", "label": "工具" },
+          { "id": "fairness", "label": "公平" },
+          { "id": "rules", "label": "規則" },
+          { "id": "power", "label": "權力" }
+        ]
+      }
+    ]
+  },
+  "endings": [
+    {
+      "id": "ENDING_A",
+      "title": "零散的答案",
+      "description": "你找到了一些片段，卻仍未能把人物、制度與悲劇連成完整的脈絡。",
+      "priority": 1,
+      "requiredCardIds": [],
+      "requiredAnswers": {}
+    },
+    {
+      "id": "ENDING_B",
+      "title": "看見衝突",
+      "description": "你看見巡警與市場衝突的直接影響，但尚未完全理解悲劇背後的制度力量。",
+      "priority": 2,
+      "minSelectedCardCount": 3,
+      "requiredCardIds": ["card-scale", "card-market-conflict"],
+      "requiredAnswers": {
+        "direct-impact": "patrol-officer"
+      }
+    },
+    {
+      "id": "ENDING_TRUE",
+      "title": "秤上的真相",
+      "description": "你理解秤仔不只是工具，而是公平在權力與程序之間被扭曲的象徵；秦得參的悲劇並非一人造成。",
+      "priority": 3,
+      "requiredCardIds": [
+        "card-qin-de-can",
+        "card-jinhua",
+        "card-scale",
+        "card-market-conflict",
+        "card-court-judgment"
+      ],
+      "requiredAnswers": {
+        "direct-impact": "patrol-officer",
+        "tragedy-factors": ["power-system", "legal-procedure"],
+        "scale-symbol": "fairness"
+      }
+    }
+  ]
+}

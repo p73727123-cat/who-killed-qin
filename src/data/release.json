@@ -1,0 +1,46 @@
+{
+  "version": "v1.1",
+  "completion": {
+    "label": "遊戲完成度",
+    "suffix": "%",
+    "milestones": [
+      { "id": "start", "percent": 0 },
+      { "id": "qin-home", "percent": 10, "requiredUnlockedSceneId": "qin-home" },
+      { "id": "market", "percent": 35, "requiredUnlockedSceneId": "market" },
+      { "id": "court", "percent": 60, "requiredUnlockedSceneId": "court" },
+      { "id": "reasoning-room", "percent": 85, "requiredUnlockedSceneId": "reasoning-room" },
+      { "id": "ending", "percent": 100, "requiresEnding": true }
+    ]
+  },
+  "actions": {
+    "releaseInfoButtonLabel": "遊戲資訊",
+    "creditsButtonLabel": "製作資訊",
+    "teacherGuideButtonLabel": "教師說明",
+    "backButtonLabel": "返回遊戲"
+  },
+  "credits": {
+    "title": "製作資訊",
+    "paragraphs": [
+      "遊戲名稱：《誰殺了秦得參？》",
+      "文本基礎：賴和〈一桿秤仔〉。",
+      "企劃與互動設計：文學推理 RPG MVP 團隊。",
+      "美術素材：專案提供之角色、場景與卡牌素材。",
+      "版本：v1.0"
+    ]
+  },
+  "teacherGuide": {
+    "title": "教師說明",
+    "paragraphs": [
+      "建議課前先引導學生閱讀賴和〈一桿秤仔〉，辨識人物處境與社會背景。",
+      "遊戲進行時，可請學生記錄每張卡牌的線索，討論個人選擇與制度力量如何交織。",
+      "完成推理後，邀請學生比較不同結局，並以文本證據支持自己對「誰最直接影響秦得參」的判斷。",
+      "本作適合作為文學閱讀、歷史脈絡與公民思辨的課堂討論起點。"
+    ]
+  },
+  "restartConfirmation": {
+    "title": "確定要重新開始嗎？",
+    "description": "目前的調查進度、已取得卡牌與推理結局將會清除。",
+    "cancelButtonLabel": "繼續調查",
+    "confirmButtonLabel": "確認重新開始"
+  }
+}
