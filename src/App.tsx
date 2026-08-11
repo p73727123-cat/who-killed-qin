@@ -21,6 +21,7 @@ import { submitInvestigationResult } from './services/googleSheet'
 import { HomeScene } from './scenes/HomeScene'
 import { SceneView } from './scenes/SceneView'
 import type {
+  CardType,
   DeductionSubmission,
   DialogueChoice,
   GoogleSheetSubmission,
@@ -52,7 +53,7 @@ function TeacherEdition() {
 
 function GameApp() {
   const [gameState, setGameState] = useState(getSavedGameState)
-  const [isCardCollectionOpen, setIsCardCollectionOpen] = useState(false)
+  const [cardCollectionFilter, setCardCollectionFilter] = useState<CardType | 'all' | null>(null)
   const [releasePage, setReleasePage] = useState<ReleasePage | null>(null)
   const [isRestartConfirmationOpen, setIsRestartConfirmationOpen] = useState(false)
   const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>(
@@ -60,6 +61,10 @@ function GameApp() {
   )
   const isSubmittingResult = useRef(gameState.submitted)
   const currentScene = getSceneById(gameState.currentScene)
+  const reasoningScene = gameData.scenes.find((scene) => scene.mode === 'deduction')
+  const canOpenDeduction = Boolean(
+    reasoningScene && gameState.unlockedScenes.includes(reasoningScene.id),
+  )
   const completion = getCompletionPercentage(
     gameState,
     gameData.release.completion.milestones,
@@ -226,7 +231,7 @@ function GameApp() {
   }
 
   const restartGame = () => {
-    setIsCardCollectionOpen(false)
+    setCardCollectionFilter(null)
     setReleasePage(null)
     setIsRestartConfirmationOpen(false)
     setSubmissionStatus('idle')
@@ -246,12 +251,21 @@ function GameApp() {
           onClose={() => setReleasePage(null)}
         />
       ) : currentScene ? (
-        isCardCollectionOpen ? (
+        cardCollectionFilter ? (
           <CardCollection
-            cards={gameData.cards}
+            cards={
+              cardCollectionFilter === 'all'
+                ? gameData.cards
+                : gameData.cards.filter((card) => card.type === cardCollectionFilter)
+            }
             unlockedCardIds={gameState.collectedCards}
             ui={gameData.cardsUi}
-            onClose={() => setIsCardCollectionOpen(false)}
+            title={
+              cardCollectionFilter === 'all'
+                ? undefined
+                : gameData.cardsUi.typeLabels[cardCollectionFilter]
+            }
+            onClose={() => setCardCollectionFilter(null)}
           />
         ) : currentScene.mode === 'deduction' ? (
           <SceneView
@@ -331,15 +345,22 @@ function GameApp() {
       )}
       {currentScene && !releasePage && (
         <>
-          {!isCardCollectionOpen && (
+          {!cardCollectionFilter && (
             <GameHud
+              canOpenDeduction={canOpenDeduction}
               chapter={currentScene.name}
               completion={completion}
               completionLabel={gameData.release.completion.label}
               completionSuffix={gameData.release.completion.suffix}
               gameTitle={gameData.ui.home.title}
               releaseInfoButtonLabel={gameData.release.actions.releaseInfoButtonLabel}
-              onOpenCards={() => setIsCardCollectionOpen(true)}
+              onOpenCards={() => setCardCollectionFilter('all')}
+              onOpenCharacters={() => setCardCollectionFilter('character')}
+              onOpenDeduction={() => {
+                if (reasoningScene) {
+                  goToScene(reasoningScene.id)
+                }
+              }}
               onOpenRelease={() => setReleasePage('credits')}
               version={gameData.release.version}
             />

@@ -292,9 +292,15 @@ h1 {
 }
 
 .game-hud__item--active,
-.game-hud__item--button:hover {
+.game-hud__item--button:not(:disabled):hover {
   background: #b69755;
   color: #252a22;
+}
+
+.game-hud__item--button:disabled {
+  color: #b8ad91;
+  cursor: not-allowed;
+  opacity: 0.58;
 }
 
 .game-hud__item--button {

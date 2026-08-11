@@ -5,14 +5,15 @@ type CardCollectionProps = {
   cards: CardData[]
   unlockedCardIds: string[]
   ui: CardUiContent
+  title?: string
   onClose: () => void
 }
 
-export function CardCollection({ cards, unlockedCardIds, ui, onClose }: CardCollectionProps) {
+export function CardCollection({ cards, unlockedCardIds, ui, title, onClose }: CardCollectionProps) {
   return (
     <section className="card-collection" aria-labelledby="card-collection-title">
       <div className="card-collection__header">
-        <h1 id="card-collection-title">{ui.collectionTitle}</h1>
+        <h1 id="card-collection-title">{title ?? ui.collectionTitle}</h1>
         <button className="collection-close-button" type="button" onClick={onClose}>
           {ui.closeButtonLabel}
         </button>

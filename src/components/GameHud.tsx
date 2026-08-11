@@ -6,7 +6,10 @@ type GameHudProps = {
   completion: number
   completionSuffix: string
   releaseInfoButtonLabel: string
+  canOpenDeduction: boolean
   onOpenCards: () => void
+  onOpenCharacters: () => void
+  onOpenDeduction: () => void
   onOpenRelease: () => void
 }
 
@@ -18,7 +21,10 @@ export function GameHud({
   completion,
   completionSuffix,
   releaseInfoButtonLabel,
+  canOpenDeduction,
   onOpenCards,
+  onOpenCharacters,
+  onOpenDeduction,
   onOpenRelease,
 }: GameHudProps) {
   return (
@@ -36,11 +42,20 @@ export function GameHud({
       </button>
       <nav className="game-hud__navigation" aria-label="遊戲介面">
         <span className="game-hud__item game-hud__item--active">探索</span>
-        <span className="game-hud__item">人物</span>
+        <button className="game-hud__item game-hud__item--button" type="button" onClick={onOpenCharacters}>
+          人物
+        </button>
         <button className="game-hud__item game-hud__item--button" type="button" onClick={onOpenCards}>
           卡牌
         </button>
-        <span className="game-hud__item">推理</span>
+        <button
+          className="game-hud__item game-hud__item--button"
+          disabled={!canOpenDeduction}
+          type="button"
+          onClick={onOpenDeduction}
+        >
+          推理
+        </button>
       </nav>
     </>
   )
