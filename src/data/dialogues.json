@@ -51,7 +51,7 @@
       "id": "qin-wife-jinhua-card",
       "characterId": "qin-wife",
       "sceneId": "qin-home",
-      "text": "還有金花。她見過得參在市場與人爭執，也許能找到更多線索。",
+      "text": "為了籌措賣菜的本錢，我向嫂子借了一根金花，已拿去當舖典當。",
       "choices": [
         {
           "id": "qin-wife-receive-jinhua-card",
@@ -62,6 +62,34 @@
           },
           "unlockScene": "market"
           ,"completedEvent": "unlocked-market"
+        }
+      ]
+    },
+    {
+      "id": "market-bystander-intro",
+      "characterId": "market-bystander",
+      "sceneId": "market",
+      "text": "巡警走遠後，我們才敢靠近。那位巡警的厲害，誰都不願招惹。",
+      "isEntryPoint": true,
+      "choices": [
+        {
+          "id": "market-bystander-ask",
+          "text": "請告訴我你看見了什麼。",
+          "next": "market-bystander-account"
+        }
+      ]
+    },
+    {
+      "id": "market-bystander-account",
+      "characterId": "market-bystander",
+      "sceneId": "market",
+      "text": "巡警說秤仔不好，便把它打斷、記下得參的名姓住處。我們議論一回，也只能散去。",
+      "choices": [
+        {
+          "id": "market-bystander-record",
+          "text": "記下市場閒人的證言。",
+          "next": null,
+          "completedEvent": "heard-market-bystander"
         }
       ]
     },

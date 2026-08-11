@@ -60,7 +60,7 @@
       "mode": "exploration",
       "backgroundImage": "/assets/backgrounds/scene_market.png",
       "backgroundAlt": "市場攤位",
-      "characterIds": ["qin-de-can", "patrol-officer"],
+      "characterIds": ["qin-de-can", "patrol-officer", "market-bystander"],
       "cardIds": ["card-market-conflict"],
       "evidenceIds": [],
       "hotspots": [
@@ -71,6 +71,13 @@
           "position": { "x": 57, "y": 59 },
           "dialogueId": "patrol-officer-intro",
           "portraitImage": "/assets/portraits/police.png"
+        },
+        {
+          "id": "hotspot-market-bystander",
+          "type": "character",
+          "label": "市場的閒人",
+          "position": { "x": 74, "y": 49 },
+          "dialogueId": "market-bystander-intro"
         },
         {
           "id": "hotspot-market-stall",

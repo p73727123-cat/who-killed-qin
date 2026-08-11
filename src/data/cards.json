@@ -56,13 +56,13 @@
     {
       "id": "card-jinhua",
       "name": "金花",
-      "type": "character",
+      "type": "item",
       "image": "/assets/cards/item_goldflower.png",
-      "description": "目擊市場爭執的重要人物。",
-      "clue": "金花曾見過秦得參在市場與人爭執。",
-      "textualEvidence": "秦妻提到金花掌握市場衝突的目擊資訊。",
-      "reasoningHint": "尋找金花的證詞，補齊市場現場的缺口。",
-      "relatedCharacterIds": []
+      "description": "秦妻為籌措賣菜本錢而典當的金花髮簪。",
+      "clue": "秦妻向嫂子借來一根金花，拿去當舖典當以換取本錢。",
+      "textualEvidence": "嫂子把唯一的裝飾品——一根金花——借給秦妻，讓她典當幾塊錢。",
+      "reasoningHint": "金花揭示秦家在生計壓力下，必須以私人物件換取資本。",
+      "relatedCharacterIds": ["qin-wife"]
     },
     {
       "id": "card-market-conflict",

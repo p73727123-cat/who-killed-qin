@@ -23,6 +23,11 @@
       "name": "法官",
       "description": "在衙門作出判決的人。",
       "portraitImage": "/assets/portraits/judge.png"
+    },
+    {
+      "id": "market-bystander",
+      "name": "市場的閒人",
+      "description": "巡警離開後才敢聚攏議論市場衝突的旁觀者。"
     }
   ]
 }
