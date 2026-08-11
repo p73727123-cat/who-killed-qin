@@ -27,7 +27,8 @@
     {
       "id": "market-bystander",
       "name": "市場的閒人",
-      "description": "巡警離開後才敢聚攏議論市場衝突的旁觀者。"
+      "description": "巡警離開後才敢聚攏議論市場衝突的旁觀者。",
+      "portraitImage": "/assets/portraits/villager_gossip.png"
     }
   ]
 }

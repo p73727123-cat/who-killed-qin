@@ -69,7 +69,7 @@
       "id": "market-bystander-intro",
       "characterId": "market-bystander",
       "sceneId": "market",
-      "text": "巡警走遠後，我們才敢靠近。那位巡警的厲害，誰都不願招惹。",
+      "text": "巡警一走，我們才敢靠近。剛才那場衝突，誰都看見了，卻沒人敢替得參出頭。",
       "isEntryPoint": true,
       "choices": [
         {
@@ -83,7 +83,7 @@
       "id": "market-bystander-account",
       "characterId": "market-bystander",
       "sceneId": "market",
-      "text": "巡警說秤仔不好，便把它打斷、記下得參的名姓住處。我們議論一回，也只能散去。",
+      "text": "他嫌秤仔不好，便打斷秤桿，盤問得參的名姓與住處。大家圍著說了幾句，誰也不敢再多話，只能散去。",
       "choices": [
         {
           "id": "market-bystander-record",

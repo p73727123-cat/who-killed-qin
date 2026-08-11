@@ -77,7 +77,8 @@
           "type": "character",
           "label": "市場的閒人",
           "position": { "x": 74, "y": 49 },
-          "dialogueId": "market-bystander-intro"
+          "dialogueId": "market-bystander-intro",
+          "portraitImage": "/assets/portraits/villager_gossip.png"
         },
         {
           "id": "hotspot-market-stall",
