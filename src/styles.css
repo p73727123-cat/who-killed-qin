@@ -557,7 +557,8 @@ h1 {
 
 .scene-view__inspection {
   align-self: end;
-  margin: 1rem 1rem 5.25rem;
+  /* Keep inspection text above both fixed exploration controls. */
+  margin: 1rem 1rem calc(8rem + env(safe-area-inset-bottom));
   border: 1px solid #c9b17d;
   border-left: 4px solid #bd9850;
   padding: 0.9rem 1rem;
@@ -1087,7 +1088,7 @@ h1 {
 
   .scene-view__inspection {
     width: min(34rem, calc(100% - 3rem));
-    margin: 1.5rem 1.5rem 5.4rem auto;
+    margin: 1.5rem 1.5rem 8.5rem auto;
   }
 
   .scene-view__portrait {
