@@ -265,6 +265,11 @@ function GameApp() {
                 ? undefined
                 : gameData.cardsUi.typeLabels[cardCollectionFilter]
             }
+            description={
+              cardCollectionFilter === 'character'
+                ? gameData.cardsUi.characterCollectionDescription
+                : undefined
+            }
             onClose={() => setCardCollectionFilter(null)}
           />
         ) : currentScene.mode === 'deduction' ? (

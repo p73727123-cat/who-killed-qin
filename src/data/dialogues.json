@@ -75,7 +75,10 @@
         {
           "id": "patrol-officer-ask-scale",
           "text": "秦得參的秤仔在哪裡？",
-          "next": "patrol-officer-scale-card"
+          "next": "patrol-officer-scale-card",
+          "reward": {
+            "cardIds": ["card-patrol-officer"]
+          }
         }
       ]
     },

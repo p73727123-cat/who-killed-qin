@@ -966,6 +966,13 @@ h1 {
   letter-spacing: 0.1em;
 }
 
+.card-collection__description {
+  margin: 0.35rem 0 0;
+  color: #655135;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
 .collection-close-button {
   flex: 0 0 auto;
   border: 1px solid #77613e;

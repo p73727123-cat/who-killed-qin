@@ -2,6 +2,7 @@
   "ui": {
     "collectionButtonLabel": "線索收藏",
     "collectionTitle": "線索收藏",
+    "characterCollectionDescription": "點擊已取得的人物卡，即可翻面查看線索與推理提示。",
     "closeButtonLabel": "返回探索",
     "lockedLabel": "尚未取得",
     "placeholderImage": "/card-emblem.svg",

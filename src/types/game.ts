@@ -52,6 +52,7 @@ export interface CardDetailLabels {
 export interface CardUiContent {
   collectionButtonLabel: string
   collectionTitle: string
+  characterCollectionDescription: string
   closeButtonLabel: string
   lockedLabel: string
   placeholderImage: string
