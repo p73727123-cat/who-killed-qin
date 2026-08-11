@@ -2,7 +2,7 @@
   "deduction": {
     "ui": {
       "title": "誰殺了秦得參？",
-      "evidenceTitle": "選擇已取得的證據",
+      "evidenceTitle": "選擇已取得的證據（推理依據）",
       "submitButtonLabel": "提交推理",
       "resetButtonLabel": "重新推理",
       "completedEventId": "completed-final-deduction"
@@ -21,7 +21,7 @@
       },
       {
         "id": "tragedy-factors",
-        "prompt": "哪些因素造成悲劇？",
+        "prompt": "哪些因素造成悲劇？（可複選）",
         "selectionMode": "multiple",
         "options": [
           { "id": "family-hardship", "label": "家庭困境" },
