@@ -2,13 +2,11 @@
   "ui": {
     "home": {
       "title": "誰殺了秦得參？",
-      "subtitle": "一桿秤仔・文學推理 RPG",
+      "subtitle": "一桿秤仔，一場悲劇，一個時代。",
       "startButtonLabel": "開始調查",
-      "startSceneId": "qin-home"
+      "startSceneId": "case-file"
     },
-    "scene": {
-      "locationLabel": "調查地點"
-    },
+    "scene": { "locationLabel": "調查地點" },
     "exploration": {
       "talkButtonLabel": "交談",
       "navigationLabel": "已解鎖地點",
@@ -17,33 +15,73 @@
   },
   "dialogues": [
     {
-      "id": "qin-wife-intro",
-      "characterId": "qin-wife",
-      "sceneId": "qin-home",
-      "text": "你想知道得參的事？我只能告訴你，他從市場回來後，神色一直不對。",
+      "id": "case-file-intro",
+      "characterId": "case-file",
+      "sceneId": "case-file",
+      "text": "案件：鎮南威麗村。人物：秦得參。任務：調查秦得參的一生，找出造成這場悲劇的關鍵因素。",
       "isEntryPoint": true,
       "choices": [
         {
-          "id": "qin-wife-ask-qin",
-          "text": "請告訴我秦得參當日的行蹤。",
-          "next": "qin-wife-qin-card"
+          "id": "case-file-open-home",
+          "text": "從秦家開始調查。",
+          "next": null,
+          "unlockScene": "qin-home",
+          "completedEvent": "completed-prologue"
         }
       ]
     },
     {
-      "id": "qin-wife-qin-card",
+      "id": "qin-wife-intro",
       "characterId": "qin-wife",
       "sceneId": "qin-home",
-      "text": "他帶著秤仔出門，說市場裡有人故意刁難他。",
+      "text": "你想知道得參的一生？他的父親早逝，家裡一直不寬裕；母親靠勤勞與節省把他拉拔大。",
+      "isEntryPoint": true,
+      "choices": [
+        { "id": "qin-wife-ask-mother", "text": "問起秦得參的母親。", "next": "qin-wife-mother-card" }
+      ]
+    },
+    {
+      "id": "qin-wife-mother-card",
+      "characterId": "qin-wife",
+      "sceneId": "qin-home",
+      "text": "母親是家裡的重要支柱。她後來病逝，家中少了一個能支撐日常的人。",
+      "choices": [
+        {
+          "id": "qin-wife-receive-mother-card",
+          "text": "記下母親的線索。",
+          "next": "qin-wife-work-history",
+          "reward": { "cardIds": ["card-qin-mother"] },
+          "completedEvent": "learned-qin-mother"
+        }
+      ]
+    },
+    {
+      "id": "qin-wife-work-history",
+      "characterId": "qin-wife",
+      "sceneId": "qin-home",
+      "text": "得參年少時替人看牛、做長工；成年後仍想靠自己的勞力和租田，把一家人的日子過好。",
       "choices": [
         {
           "id": "qin-wife-receive-qin-card",
-          "text": "記下秦得參的線索。",
-          "next": "qin-wife-jinhua-card",
-          "reward": {
-            "cardIds": ["card-qin-de-can"]
-          },
+          "text": "記下秦得參的生命背景。",
+          "next": "qin-wife-family-life",
+          "reward": { "cardIds": ["card-qin-de-can"] },
           "completedEvent": "received-qin-de-can-card"
+        }
+      ]
+    },
+    {
+      "id": "qin-wife-family-life",
+      "characterId": "qin-wife",
+      "sceneId": "qin-home",
+      "text": "我們成家、有了孩子，仍一起照顧家裡。可是得參後來生病，能做的工少了，收入也更不穩。",
+      "choices": [
+        {
+          "id": "qin-wife-receive-wife-card",
+          "text": "記下家庭共同維持生計的線索。",
+          "next": "qin-wife-jinhua-card",
+          "reward": { "cardIds": ["card-qin-wife"] },
+          "completedEvent": "learned-qin-family-life"
         }
       ]
     },
@@ -51,17 +89,15 @@
       "id": "qin-wife-jinhua-card",
       "characterId": "qin-wife",
       "sceneId": "qin-home",
-      "text": "為了籌措賣菜的本錢，我向嫂子借了一根金花，已拿去當舖典當。",
+      "text": "聽說市場賣生菜有販路後，我向嫂子借了一根金花，拿去典當，替他籌做生意的本錢。",
       "choices": [
         {
           "id": "qin-wife-receive-jinhua-card",
-          "text": "記下金花的線索，前往市場。",
+          "text": "記下金花與賣菜本錢的線索，前往市場。",
           "next": null,
-          "reward": {
-            "cardIds": ["card-jinhua"]
-          },
-          "unlockScene": "market"
-          ,"completedEvent": "unlocked-market"
+          "reward": { "cardIds": ["card-jinhua"] },
+          "unlockScene": "market",
+          "completedEvent": "unlocked-market"
         }
       ]
     },
@@ -72,26 +108,20 @@
       "text": "巡警一走，我們才敢靠近。剛才那場衝突，誰都看見了，卻沒人敢替得參出頭。",
       "isEntryPoint": true,
       "choices": [
-        {
-          "id": "market-bystander-ask",
-          "text": "請告訴我你看見了什麼。",
-          "next": "market-bystander-account"
-        }
+        { "id": "market-bystander-ask", "text": "請告訴我你看見了什麼。", "next": "market-bystander-account" }
       ]
     },
     {
       "id": "market-bystander-account",
       "characterId": "market-bystander",
       "sceneId": "market",
-      "text": "他嫌秤仔不好，便打斷秤桿，盤問得參的名姓與住處。大家圍著說了幾句，誰也不敢再多話，只能散去。",
+      "text": "巡警嫌秤仔不好，處理秤桿後又盤問得參的名姓與住處。我們議論一回，也只能散去。",
       "choices": [
         {
           "id": "market-bystander-record",
           "text": "記下市場閒人的證言。",
           "next": null,
-          "reward": {
-            "cardIds": ["card-market-bystander"]
-          },
+          "reward": { "cardIds": ["card-market-bystander"] },
           "completedEvent": "heard-market-bystander"
         }
       ]
@@ -100,32 +130,49 @@
       "id": "patrol-officer-intro",
       "characterId": "patrol-officer",
       "sceneId": "market",
-      "text": "市場那天確實起了衝突，但我到場時，事情已經無法收拾。",
+      "text": "我注意到秦得參攤上的生菜，便要他先拿一把來秤。",
       "isEntryPoint": true,
       "choices": [
         {
           "id": "patrol-officer-ask-scale",
-          "text": "秦得參的秤仔在哪裡？",
-          "next": "patrol-officer-scale-card",
-          "reward": {
-            "cardIds": ["card-patrol-officer"]
-          }
+          "text": "詢問巡警如何處理市場交易。",
+          "next": "patrol-officer-request-weigh",
+          "reward": { "cardIds": ["card-patrol-officer"] }
         }
+      ]
+    },
+    {
+      "id": "patrol-officer-request-weigh",
+      "characterId": "patrol-officer",
+      "sceneId": "market",
+      "text": "秦得參拿出借來的秤仔秤重，並說明自己只是照著交易需要使用它。",
+      "choices": [
+        { "id": "patrol-officer-understanding", "text": "想像自己站在秦得參的位置。", "next": "market-character-choice" }
+      ]
+    },
+    {
+      "id": "market-character-choice",
+      "characterId": "patrol-officer",
+      "sceneId": "market",
+      "text": "如果你是秦得參，此時會怎麼做？這個選擇不會改變故事結果，但請想想他面對的是什麼處境。",
+      "choices": [
+        { "id": "market-choice-apologize", "text": "A. 立即道歉", "next": "patrol-officer-scale-card", "learningMetric": { "characterUnderstanding": 1 } },
+        { "id": "market-choice-explain", "text": "B. 解釋秤仔沒有問題", "next": "patrol-officer-scale-card", "learningMetric": { "characterUnderstanding": 2 } },
+        { "id": "market-choice-leave", "text": "C. 直接離開", "next": "patrol-officer-scale-card", "learningMetric": { "characterUnderstanding": 1 } },
+        { "id": "market-choice-argue", "text": "D. 與巡警爭論", "next": "patrol-officer-scale-card", "learningMetric": { "characterUnderstanding": 1 } }
       ]
     },
     {
       "id": "patrol-officer-scale-card",
       "characterId": "patrol-officer",
       "sceneId": "market",
-      "text": "秤仔被帶去衙門留存。它看似尋常，卻可能說明衝突的起因。",
+      "text": "巡警認為秤仔有問題；秦得參試著解釋，市場裡的交易因此停了下來。",
       "choices": [
         {
           "id": "patrol-officer-receive-scale-card",
-          "text": "記下秤仔的線索。",
+          "text": "記下一桿秤仔。",
           "next": "patrol-officer-conflict-card",
-          "reward": {
-            "cardIds": ["card-scale"]
-          },
+          "reward": { "cardIds": ["card-scale"] },
           "completedEvent": "received-scale-card"
         }
       ]
@@ -134,17 +181,15 @@
       "id": "patrol-officer-conflict-card",
       "characterId": "patrol-officer",
       "sceneId": "market",
-      "text": "爭執並非偶然。有人指控秦得參用秤不公，群眾很快圍了上來。",
+      "text": "秤仔被處理後，巡警記下秦得參的姓名與住址。交易爭議已不只是攤位上的事，而要進入官府程序。",
       "choices": [
         {
           "id": "patrol-officer-receive-conflict-card",
-          "text": "記下市場衝突，前往衙門。",
+          "text": "記下市場衝突，整理事件時間線。",
           "next": null,
-          "reward": {
-            "cardIds": ["card-market-conflict"]
-          },
-          "unlockScene": "court"
-          ,"completedEvent": "unlocked-court"
+          "reward": { "cardIds": ["card-market-conflict"] },
+          "unlockScene": "timeline-market-cause",
+          "completedEvent": "unlocked-timeline-market-cause"
         }
       ]
     },
@@ -152,31 +197,78 @@
       "id": "judge-intro",
       "characterId": "judge",
       "sceneId": "court",
-      "text": "判決寫在卷宗裡，但卷宗記下的未必就是全部真相。",
+      "text": "要理解衙門的處置，先把秦得參、巡警與法官留下的說法放在一起看。",
       "isEntryPoint": true,
       "choices": [
+        { "id": "judge-read-qin", "text": "閱讀秦得參的陳述。", "next": "court-qin-testimony" }
+      ]
+    },
+    {
+      "id": "court-qin-testimony",
+      "characterId": "qin-de-can",
+      "sceneId": "court",
+      "text": "秦得參自認只是為了交易而使用秤仔，並不認為自己犯了法。",
+      "choices": [
         {
-          "id": "judge-ask-judgment",
-          "text": "請讓我查看衙門的判決。",
-          "next": "judge-judgment-card"
+          "id": "court-receive-qin-testimony",
+          "text": "記下秦得參的陳述。",
+          "next": "court-police-report",
+          "reward": { "cardIds": ["evidence-qin-testimony"] }
         }
       ]
     },
     {
-      "id": "judge-judgment-card",
-      "characterId": "judge",
+      "id": "court-police-report",
+      "characterId": "patrol-officer",
       "sceneId": "court",
-      "text": "這份判決只處理了眼前的衝突。若要找出真相，你得自己整理所有線索。",
+      "text": "巡警的報告主張秤仔違反交易規則，並將處理經過記入案件。",
       "choices": [
         {
-          "id": "judge-receive-judgment-card",
-          "text": "記下衙門判決，前往推理室。",
+          "id": "court-receive-police-report",
+          "text": "記下巡警報告。",
+          "next": "court-judge-trust",
+          "reward": { "cardIds": ["evidence-police-report"] }
+        }
+      ]
+    },
+    {
+      "id": "court-judge-trust",
+      "characterId": "judge",
+      "sceneId": "court",
+      "text": "法官依據巡警報告作出處置；可是秦得參手中沒有足夠的錢，難以承擔接下來的處罰。",
+      "choices": [
+        {
+          "id": "court-receive-judgment",
+          "text": "記下衙門如何採信報告。",
           "next": null,
-          "reward": {
-            "cardIds": ["card-court-judgment"]
-          },
-          "unlockScene": "reasoning-room"
-          ,"completedEvent": "unlocked-reasoning-room"
+          "reward": { "cardIds": ["evidence-judge-trust", "evidence-fine", "card-court-judgment"] },
+          "unlockScene": "new-year-eve",
+          "completedEvent": "unlocked-new-year-eve"
+        }
+      ]
+    },
+    {
+      "id": "new-year-eve-intro",
+      "characterId": "qin-wife",
+      "sceneId": "new-year-eve",
+      "text": "除夕夜，家裡仍在準備過年。得參回到家後卻一直沉默，屋裡的氣氛異常安靜。",
+      "isEntryPoint": true,
+      "choices": [
+        { "id": "new-year-eve-reflect", "text": "整理今晚之前的所有線索。", "next": "new-year-eve-fade" }
+      ]
+    },
+    {
+      "id": "new-year-eve-fade",
+      "characterId": "qin-wife",
+      "sceneId": "new-year-eve",
+      "text": "夜色沉下來。你沒有看見暴力，只知道這一夜之後，秦得參的故事留下了一個需要被追問的結局。",
+      "choices": [
+        {
+          "id": "new-year-eve-open-reasoning",
+          "text": "前往推理室。",
+          "next": null,
+          "unlockScene": "reasoning-room",
+          "completedEvent": "unlocked-reasoning-room"
         }
       ]
     }

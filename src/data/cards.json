@@ -25,11 +25,33 @@
       "name": "秦得參",
       "type": "character",
       "image": "/assets/cards/char_qin.png",
-      "description": "事件核心人物，其遭遇牽動整場調查。",
-      "clue": "秦得參帶著秤仔前往市場，並在返家後顯得異常不安。",
-      "textualEvidence": "秦妻指出，他從市場回來後神色一直不對。",
-      "reasoningHint": "先重建他離家、到市場、返家的時間線。",
+      "description": "勤勞、老實，長期想靠勞動維持家庭的人。",
+      "clue": "父親早逝後，他曾看牛、做長工，也嘗試靠租田與勞動改善生活。",
+      "textualEvidence": "疾病使他的工作能力與收入受到影響，家庭因而必須尋找其他維生方法。",
+      "reasoningHint": "先重建他的家庭背景、病痛與走向市場之間的關係。",
       "relatedCharacterIds": ["qin-de-can"]
+    },
+    {
+      "id": "card-qin-mother",
+      "name": "秦得參母親",
+      "type": "character",
+      "image": "/card-emblem.svg",
+      "description": "勤勞節儉、撫養秦得參長大的家庭支柱。",
+      "clue": "母親病逝後，家庭少了一位能支撐日常的人。",
+      "textualEvidence": "秦得參幼年失父，母親長期維持家計。",
+      "reasoningHint": "注意家庭支持如何影響一個人面對困境的能力。",
+      "relatedCharacterIds": ["qin-mother", "qin-de-can"]
+    },
+    {
+      "id": "card-qin-wife",
+      "name": "秦得參妻子",
+      "type": "character",
+      "image": "/assets/portraits/qin_wife.png",
+      "description": "與秦得參共同照顧家庭、籌措生計的人。",
+      "clue": "她為了開始賣菜的本錢，設法典當金花。",
+      "textualEvidence": "家庭面臨收入不足時，妻子必須拿出可變現的資產。",
+      "reasoningHint": "從妻子的行動思考家庭如何共同承擔生計壓力。",
+      "relatedCharacterIds": ["qin-wife", "qin-de-can"]
     },
     {
       "id": "card-patrol-officer",
@@ -58,11 +80,18 @@
       "name": "一桿秤仔",
       "type": "item",
       "image": "/assets/cards/item_scale.png",
-      "description": "引發爭議的關鍵物件。",
-      "clue": "秤仔被帶往衙門留存，可能與市場指控有關。",
-      "textualEvidence": "巡警表示，秤仔已被帶去衙門。",
-      "reasoningHint": "秤仔是否真的不公，或只是衝突的藉口？",
-      "relatedCharacterIds": ["qin-de-can"]
+      "description": "秦得參賣菜時使用的秤仔。",
+      "clue": "它原本是完成交易所需的工具，卻在市場上引起爭議。",
+      "textualEvidence": "秦得參使用借來的秤仔秤重；巡警對它提出質疑。",
+      "reasoningHint": "先從交易與規則的角度閱讀它，再比較不同人的說法。",
+      "relatedCharacterIds": ["qin-de-can"],
+      "interpretations": [
+        {
+          "unlockEventId": "timeline-market-cause:completed",
+          "clue": "完成時間線後，秤仔也連結了交易、規則與市場衝突。",
+          "reasoningHint": "比較誰有權決定一桿秤仔是否合乎規則。"
+        }
+      ]
     },
     {
       "id": "card-jinhua",
@@ -70,9 +99,9 @@
       "type": "item",
       "image": "/assets/cards/item_goldflower.png",
       "description": "秦妻為籌措賣菜本錢而典當的金花髮簪。",
-      "clue": "秦妻向嫂子借來一根金花，拿去當舖典當以換取本錢。",
+      "clue": "秦得參家庭可以變現的重要物品。",
       "textualEvidence": "嫂子把唯一的裝飾品——一根金花——借給秦妻，讓她典當幾塊錢。",
-      "reasoningHint": "金花揭示秦家在生計壓力下，必須以私人物件換取資本。",
+      "reasoningHint": "注意家庭資產、借貸與開始做生意的本錢之間的關係。",
       "relatedCharacterIds": ["qin-wife"]
     },
     {
@@ -96,6 +125,50 @@
       "textualEvidence": "法官提醒，卷宗寫下的未必就是所有真相。",
       "reasoningHint": "比較官方判決與人物證詞之間的落差。",
       "relatedCharacterIds": ["judge"]
+    },
+    {
+      "id": "evidence-qin-testimony",
+      "name": "秦得參的陳述",
+      "type": "evidence",
+      "image": "/card-emblem.svg",
+      "description": "秦得參認為自己只是為交易使用秤仔。",
+      "clue": "他自認並未犯法。",
+      "textualEvidence": "他的說法以交易需求與自身理解為出發點。",
+      "reasoningHint": "比較這個說法與巡警報告之間的落差。",
+      "relatedCharacterIds": ["qin-de-can"]
+    },
+    {
+      "id": "evidence-police-report",
+      "name": "巡警報告",
+      "type": "evidence",
+      "image": "/assets/cards/char_police.png",
+      "description": "巡警主張秤仔違反交易規則的案件記錄。",
+      "clue": "報告決定事件如何被帶入官府程序。",
+      "textualEvidence": "巡警把處理秤仔與盤問姓名住址的經過記入案件。",
+      "reasoningHint": "想想誰有能力讓一種說法成為正式紀錄。",
+      "relatedCharacterIds": ["patrol-officer"]
+    },
+    {
+      "id": "evidence-judge-trust",
+      "name": "法官採信報告",
+      "type": "evidence",
+      "image": "/assets/cards/event_court.png",
+      "description": "法官依據巡警報告作出處置。",
+      "clue": "秦得參的說法沒有成為主要判斷依據。",
+      "textualEvidence": "衙門處置以巡警提交的案件記錄為基礎。",
+      "reasoningHint": "比較不同證詞在程序中被採納的方式。",
+      "relatedCharacterIds": ["judge", "patrol-officer"]
+    },
+    {
+      "id": "evidence-fine",
+      "name": "無力承擔的處罰",
+      "type": "evidence",
+      "image": "/card-emblem.svg",
+      "description": "秦得參無足夠金錢處理衙門的處罰。",
+      "clue": "程序中的金錢負擔，落在本已困難的家庭身上。",
+      "textualEvidence": "家庭先前已透過典當金花籌措本錢。",
+      "reasoningHint": "把市場事件放回家庭經濟條件中閱讀。",
+      "relatedCharacterIds": ["qin-de-can", "qin-wife"]
     }
   ]
 }

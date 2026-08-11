@@ -1,34 +1,11 @@
 {
   "characters": [
-    {
-      "id": "qin-de-can",
-      "name": "秦得參",
-      "description": "秦家的主人，也是這場事件的核心人物。",
-      "portraitImage": "/assets/portraits/qin_de_can.png"
-    },
-    {
-      "id": "qin-wife",
-      "name": "秦妻",
-      "description": "與秦得參同住，掌握秦家日常的細節。",
-      "portraitImage": "/assets/portraits/qin_wife.png"
-    },
-    {
-      "id": "patrol-officer",
-      "name": "巡警",
-      "description": "負責維持村落與市場秩序的巡查人員。",
-      "portraitImage": "/assets/portraits/police.png"
-    },
-    {
-      "id": "judge",
-      "name": "法官",
-      "description": "在衙門作出判決的人。",
-      "portraitImage": "/assets/portraits/judge.png"
-    },
-    {
-      "id": "market-bystander",
-      "name": "市場的閒人",
-      "description": "巡警離開後才敢聚攏議論市場衝突的旁觀者。",
-      "portraitImage": "/assets/portraits/villager_gossip.png"
-    }
+    { "id": "case-file", "name": "案卷", "description": "調查開始前留下的案件紀錄。" },
+    { "id": "qin-de-can", "name": "秦得參", "description": "長期以勞動維持家庭的農民。", "portraitImage": "/assets/portraits/qin_de_can.png" },
+    { "id": "qin-wife", "name": "秦得參妻子", "description": "與秦得參共同照顧家庭、籌措生計的人。", "portraitImage": "/assets/portraits/qin_wife.png" },
+    { "id": "qin-mother", "name": "秦得參母親", "description": "勤勞節儉地撫養秦得參的家庭支柱。" },
+    { "id": "patrol-officer", "name": "日本巡警", "description": "負責市場事件處置與記錄的巡查人員。", "portraitImage": "/assets/portraits/police.png" },
+    { "id": "judge", "name": "法官", "description": "依案件報告作出處置的人。", "portraitImage": "/assets/portraits/judge.png" },
+    { "id": "market-bystander", "name": "市場的閒人", "description": "巡警離開後才敢聚攏議論市場衝突的旁觀者。", "portraitImage": "/assets/portraits/villager_gossip.png" }
   ]
 }

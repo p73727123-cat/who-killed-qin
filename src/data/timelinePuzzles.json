@@ -1,0 +1,94 @@
+{
+  "timelinePuzzles": [
+    {
+      "id": "timeline-market-cause",
+      "chapter": 3,
+      "title": "秦得參為什麼走到市場？",
+      "instruction": "請依照故事中的因果順序排列事件。",
+      "eventIds": [
+        "event-sick",
+        "event-income-loss",
+        "event-family-poverty",
+        "event-market-opportunity",
+        "event-gold-flower",
+        "event-selling-vegetables",
+        "event-borrow-scale",
+        "event-scale-conflict"
+      ],
+      "initialOrder": [
+        "event-scale-conflict",
+        "event-market-opportunity",
+        "event-income-loss",
+        "event-gold-flower",
+        "event-sick",
+        "event-borrow-scale",
+        "event-family-poverty",
+        "event-selling-vegetables"
+      ],
+      "correctOrder": [
+        "event-sick",
+        "event-income-loss",
+        "event-family-poverty",
+        "event-market-opportunity",
+        "event-gold-flower",
+        "event-selling-vegetables",
+        "event-borrow-scale",
+        "event-scale-conflict"
+      ],
+      "hintMessages": [
+        "請先想想：秦得參為什麼需要尋找新的收入來源？",
+        "注意疾病、收入與開始賣菜之間的關係。",
+        "先從生病開始，再依序整理收入受影響、家庭缺錢、籌本錢與開始賣菜的關係。"
+      ],
+      "successMessage": "你重建了秦得參走向市場的事件鏈。",
+      "reflectionQuestion": "其中哪一個事件，是秦得參自己能完全控制的？",
+      "completeButtonLabel": "確認順序",
+      "resetButtonLabel": "重新排列",
+      "hintButtonLabel": "閱讀提示",
+      "continueButtonLabel": "前往衙門",
+      "unlockSceneId": "court"
+    }
+  ],
+  "events": [
+    {
+      "id": "event-sick",
+      "title": "秦得參生病",
+      "description": "病痛使他原本的勞動能力受到影響。"
+    },
+    {
+      "id": "event-income-loss",
+      "title": "工作與收入受影響",
+      "description": "能夠工作的時間與收入都變得不穩定。"
+    },
+    {
+      "id": "event-family-poverty",
+      "title": "家庭缺乏生活資金",
+      "description": "家庭日常開支更加難以支應。"
+    },
+    {
+      "id": "event-market-opportunity",
+      "title": "聽說市場生菜有販路",
+      "description": "他得知賣菜或許能成為新的維生方法。"
+    },
+    {
+      "id": "event-gold-flower",
+      "title": "妻子拿金花籌措本錢",
+      "description": "家庭以可變現的物品換取開始做生意的本錢。"
+    },
+    {
+      "id": "event-selling-vegetables",
+      "title": "秦得參開始賣菜",
+      "description": "他帶著菜到市場，希望靠交易維持家計。"
+    },
+    {
+      "id": "event-borrow-scale",
+      "title": "秦得參借來秤仔",
+      "description": "交易需要秤重，他使用借來的秤仔。"
+    },
+    {
+      "id": "event-scale-conflict",
+      "title": "發生秤仔事件",
+      "description": "市場中的秤重爭議，使事件進入官府程序。"
+    }
+  ]
+}

@@ -15,6 +15,10 @@ export const initialGameState: GameState = {
   completedEvents: [],
   ending: null,
   hintsUsed: [],
+  timelineProgress: {},
+  learningMetrics: {
+    characterUnderstanding: 0,
+  },
 }
 
 export function getSavedGameState(): GameState {
@@ -47,6 +51,12 @@ export function getSavedGameState(): GameState {
       completedEvents: asStringArray(parsedState.completedEvents),
       ending: asNullableString(parsedState.ending ?? parsedState.endingId),
       hintsUsed: asStringArray(parsedState.hintsUsed),
+      timelineProgress: asTimelineProgress(parsedState.timelineProgress),
+      learningMetrics: {
+        characterUnderstanding: asNonNegativeNumber(
+          asRecord(parsedState.learningMetrics).characterUnderstanding,
+        ),
+      },
     }
   } catch {
     return initialGameState
@@ -76,4 +86,26 @@ function asStringArray(value: unknown) {
 
 function addCurrentScene(sceneIds: string[], currentScene: string | null) {
   return currentScene && !sceneIds.includes(currentScene) ? [...sceneIds, currentScene] : sceneIds
+}
+
+function asTimelineProgress(value: unknown) {
+  const progress = asRecord(value)
+
+  return Object.fromEntries(
+    Object.entries(progress).map(([puzzleId, puzzleValue]) => {
+      const puzzle = asRecord(puzzleValue)
+      return [
+        puzzleId,
+        {
+          attempts: asNonNegativeNumber(puzzle.attempts),
+          hintLevel: asNonNegativeNumber(puzzle.hintLevel),
+          completed: puzzle.completed === true,
+        },
+      ]
+    }),
+  )
+}
+
+function asNonNegativeNumber(value: unknown) {
+  return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : 0
 }

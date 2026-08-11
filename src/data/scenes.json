@@ -1,35 +1,33 @@
 {
-  "ui": {
-    "placeholderImage": "/scene-placeholder.svg"
-  },
+  "ui": { "placeholderImage": "/scene-placeholder.svg" },
   "scenes": [
     {
+      "id": "case-file",
+      "name": "序章：案卷",
+      "description": "從案件紀錄開始調查。",
+      "mode": "exploration",
+      "backgroundImage": "/assets/backgrounds/scene_deduction_room.png",
+      "backgroundAlt": "案件卷宗與線索桌",
+      "characterIds": ["case-file"],
+      "cardIds": [],
+      "evidenceIds": [],
+      "hotspots": [
+        { "id": "hotspot-case-file", "type": "object", "label": "開啟案卷", "position": { "x": 50, "y": 62 }, "dialogueId": "case-file-intro" }
+      ]
+    },
+    {
       "id": "qin-home",
-      "name": "秦家",
-      "description": "秦得參一家居住的地方。",
+      "name": "第一章：秦得參是誰？",
+      "description": "從秦家的生活軌跡理解秦得參的處境。",
       "mode": "exploration",
       "backgroundImage": "/assets/backgrounds/scene_qin_home.png",
       "backgroundAlt": "秦家內部",
-      "characterIds": ["qin-wife"],
-      "cardIds": ["card-qin-de-can", "card-scale"],
+      "characterIds": ["qin-wife", "qin-mother"],
+      "cardIds": ["card-qin-de-can", "card-qin-mother", "card-qin-wife", "card-jinhua"],
       "evidenceIds": [],
       "hotspots": [
-        {
-          "id": "hotspot-qin-wife",
-          "type": "character",
-          "label": "秦妻",
-          "position": { "x": 61, "y": 62 },
-          "dialogueId": "qin-wife-intro",
-          "portraitImage": "/assets/portraits/qin_wife.png"
-        },
-        {
-          "id": "hotspot-qin-scale",
-          "type": "object",
-          "label": "一桿秤仔",
-          "position": { "x": 30, "y": 70 },
-          "image": "/assets/cards/item_scale.png",
-          "interactionText": "秤仔安靜地放在角落，秤桿上留著反覆使用的痕跡。"
-        }
+        { "id": "hotspot-qin-wife", "type": "character", "label": "秦得參妻子", "position": { "x": 61, "y": 62 }, "dialogueId": "qin-wife-intro", "portraitImage": "/assets/portraits/qin_wife.png" },
+        { "id": "hotspot-qin-scale", "type": "object", "label": "一桿秤仔", "position": { "x": 30, "y": 70 }, "image": "/assets/cards/item_scale.png", "interactionText": "秤仔尚未進入市場，卻已成為一家人尋找收入時必須用到的工具。" }
       ]
     },
     {
@@ -39,76 +37,66 @@
       "mode": "exploration",
       "backgroundImage": "/assets/backgrounds/scene_village.png",
       "backgroundAlt": "村落街道",
-      "characterIds": ["qin-wife", "patrol-officer"],
+      "characterIds": [],
       "cardIds": [],
       "evidenceIds": [],
       "hotspots": [
-        {
-          "id": "hotspot-village-notice",
-          "type": "object",
-          "label": "佈告欄",
-          "position": { "x": 50, "y": 48 },
-          "image": "/assets/backgrounds/scene_village.png",
-          "interactionText": "佈告欄上的字跡被雨水暈開，卻仍能看出人們對市場衝突的議論。"
-        }
+        { "id": "hotspot-village-notice", "type": "object", "label": "佈告欄", "position": { "x": 50, "y": 48 }, "image": "/assets/backgrounds/scene_village.png", "interactionText": "佈告欄上的字跡被雨水暈開，留下人們對市場事件的議論。" }
       ]
     },
     {
       "id": "market",
-      "name": "市場",
+      "name": "第二章：一桿秤仔",
       "description": "人群與交易交會的市場。",
       "mode": "exploration",
       "backgroundImage": "/assets/backgrounds/scene_market.png",
       "backgroundAlt": "市場攤位",
       "characterIds": ["qin-de-can", "patrol-officer", "market-bystander"],
-      "cardIds": ["card-market-conflict"],
+      "cardIds": ["card-scale", "card-market-conflict"],
       "evidenceIds": [],
       "hotspots": [
-        {
-          "id": "hotspot-patrol-officer",
-          "type": "character",
-          "label": "巡警",
-          "position": { "x": 57, "y": 59 },
-          "dialogueId": "patrol-officer-intro",
-          "portraitImage": "/assets/portraits/police.png"
-        },
-        {
-          "id": "hotspot-market-bystander",
-          "type": "character",
-          "label": "市場的閒人",
-          "position": { "x": 27, "y": 63 },
-          "dialogueId": "market-bystander-intro",
-          "portraitImage": "/assets/portraits/villager_gossip.png"
-        }
+        { "id": "hotspot-patrol-officer", "type": "character", "label": "日本巡警", "position": { "x": 57, "y": 59 }, "dialogueId": "patrol-officer-intro", "portraitImage": "/assets/portraits/police.png" },
+        { "id": "hotspot-market-bystander", "type": "character", "label": "市場的閒人", "position": { "x": 27, "y": 63 }, "dialogueId": "market-bystander-intro", "portraitImage": "/assets/portraits/villager_gossip.png" }
       ]
     },
     {
+      "id": "timeline-market-cause",
+      "name": "第三章：事情為什麼走到這一步？",
+      "description": "重組秦得參走向市場的事件鏈。",
+      "mode": "timeline",
+      "backgroundImage": "/assets/backgrounds/scene_market.png",
+      "backgroundAlt": "市場事件時間線",
+      "characterIds": [],
+      "cardIds": [],
+      "evidenceIds": [],
+      "hotspots": []
+    },
+    {
       "id": "court",
-      "name": "衙門",
-      "description": "巡警與法官處理案件的衙門。",
+      "name": "第四章：衙門",
+      "description": "比較案件中留下的不同說法。",
       "mode": "exploration",
       "backgroundImage": "/assets/backgrounds/scene_court.png",
       "backgroundAlt": "衙門公堂",
-      "characterIds": ["patrol-officer", "judge"],
-      "cardIds": ["card-court-judgment"],
+      "characterIds": ["qin-de-can", "patrol-officer", "judge"],
+      "cardIds": ["evidence-qin-testimony", "evidence-police-report", "evidence-judge-trust", "evidence-fine", "card-court-judgment"],
       "evidenceIds": [],
       "hotspots": [
-        {
-          "id": "hotspot-judge",
-          "type": "character",
-          "label": "法官",
-          "position": { "x": 59, "y": 53 },
-          "dialogueId": "judge-intro",
-          "portraitImage": "/assets/portraits/judge.png"
-        },
-        {
-          "id": "hotspot-court-record",
-          "type": "object",
-          "label": "案件卷宗",
-          "position": { "x": 30, "y": 71 },
-          "image": "/assets/cards/event_court.png",
-          "interactionText": "卷宗依照規矩收好，卻無法替你回答那些沒有被寫進去的問題。"
-        }
+        { "id": "hotspot-judge", "type": "character", "label": "法官", "position": { "x": 59, "y": 53 }, "dialogueId": "judge-intro", "portraitImage": "/assets/portraits/judge.png" }
+      ]
+    },
+    {
+      "id": "new-year-eve",
+      "name": "第五章：除夕夜",
+      "description": "夜色裡，家庭準備過年，秦得參卻陷入沉默。",
+      "mode": "exploration",
+      "backgroundImage": "/assets/backgrounds/scene_qin_home.png",
+      "backgroundAlt": "除夕夜的秦家（場景示意）",
+      "characterIds": ["qin-wife", "qin-de-can"],
+      "cardIds": [],
+      "evidenceIds": [],
+      "hotspots": [
+        { "id": "hotspot-new-year-eve", "type": "character", "label": "秦得參妻子", "position": { "x": 61, "y": 62 }, "dialogueId": "new-year-eve-intro", "portraitImage": "/assets/portraits/qin_wife.png" }
       ]
     },
     {
@@ -122,14 +110,7 @@
       "cardIds": [],
       "evidenceIds": [],
       "hotspots": [
-        {
-          "id": "hotspot-clue-board",
-          "type": "object",
-          "label": "線索桌",
-          "position": { "x": 50, "y": 60 },
-          "image": "/assets/backgrounds/scene_deduction_room.png",
-          "interactionText": "所有線索都已攤在眼前，下一步是找出它們彼此矛盾的地方。"
-        }
+        { "id": "hotspot-clue-board", "type": "object", "label": "線索桌", "position": { "x": 50, "y": 60 }, "image": "/assets/backgrounds/scene_deduction_room.png", "interactionText": "所有線索都已攤在眼前，下一步是找出它們彼此的關係。" }
       ]
     }
   ]

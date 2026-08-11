@@ -5,6 +5,7 @@ import endingsJson from './endings.json'
 import scenesJson from './scenes.json'
 import releaseJson from './release.json'
 import teacherJson from './teacher.json'
+import timelinePuzzlesJson from './timelinePuzzles.json'
 import type {
   CardsFile,
   CharactersFile,
@@ -13,6 +14,7 @@ import type {
   ReleaseData,
   ScenesFile,
   TeacherFile,
+  TimelinePuzzlesFile,
 } from '../types/game'
 
 export const charactersData: CharactersFile = charactersJson
@@ -22,6 +24,7 @@ export const scenesData = scenesJson as ScenesFile
 export const endingsData = endingsJson as EndingsFile
 export const releaseData = releaseJson as ReleaseData
 export const teacherData = teacherJson as TeacherFile
+export const timelinePuzzlesData = timelinePuzzlesJson as TimelinePuzzlesFile
 
 export const gameData = {
   characters: charactersData.characters,
@@ -35,6 +38,8 @@ export const gameData = {
   scenesUi: scenesData.ui,
   release: releaseData,
   teacher: teacherData.teacher,
+  timelinePuzzles: timelinePuzzlesData.timelinePuzzles,
+  timelineEvents: timelinePuzzlesData.events,
 }
 
 export function getSceneById(sceneId: string | null) {

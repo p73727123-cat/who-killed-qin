@@ -1,14 +1,16 @@
 {
-  "version": "v1.1",
+  "version": "v1.2",
   "completion": {
     "label": "遊戲完成度",
     "suffix": "%",
     "milestones": [
       { "id": "start", "percent": 0 },
-      { "id": "qin-home", "percent": 10, "requiredUnlockedSceneId": "qin-home" },
+      { "id": "qin-home", "percent": 15, "requiredUnlockedSceneId": "qin-home" },
       { "id": "market", "percent": 35, "requiredUnlockedSceneId": "market" },
-      { "id": "court", "percent": 60, "requiredUnlockedSceneId": "court" },
-      { "id": "reasoning-room", "percent": 85, "requiredUnlockedSceneId": "reasoning-room" },
+      { "id": "timeline", "percent": 55, "requiredUnlockedSceneId": "timeline-market-cause" },
+      { "id": "court", "percent": 70, "requiredUnlockedSceneId": "court" },
+      { "id": "new-year-eve", "percent": 85, "requiredUnlockedSceneId": "new-year-eve" },
+      { "id": "reasoning-room", "percent": 92, "requiredUnlockedSceneId": "reasoning-room" },
       { "id": "ending", "percent": 100, "requiresEnding": true }
     ]
   },

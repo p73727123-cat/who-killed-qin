@@ -13,6 +13,9 @@ export interface DialogueChoice {
   unlockScene?: string
   completedEvent?: string
   requiredEvidenceIds?: string[]
+  learningMetric?: {
+    characterUnderstanding?: number
+  }
 }
 
 export interface DialogueReward {
@@ -41,6 +44,14 @@ export interface Card {
   textualEvidence: string
   reasoningHint: string
   relatedCharacterIds: string[]
+  interpretations?: CardInterpretation[]
+}
+
+export interface CardInterpretation {
+  unlockEventId: string
+  clue: string
+  textualEvidence?: string
+  reasoningHint?: string
 }
 
 export interface CardDetailLabels {
@@ -70,7 +81,7 @@ export interface Scene {
   cardIds: string[]
   evidenceIds: string[]
   hotspots: SceneHotspot[]
-  mode?: 'exploration' | 'deduction'
+  mode?: 'exploration' | 'deduction' | 'timeline'
 }
 
 export interface SceneHotspot {
@@ -147,6 +158,45 @@ export interface GameState {
   completedEvents: string[]
   ending: string | null
   hintsUsed: string[]
+  timelineProgress: Record<string, TimelinePuzzleState>
+  learningMetrics: {
+    characterUnderstanding: number
+  }
+}
+
+export interface TimelineEvent {
+  id: string
+  title: string
+  description: string
+}
+
+export interface TimelinePuzzle {
+  id: string
+  chapter: number
+  title: string
+  instruction: string
+  eventIds: string[]
+  initialOrder: string[]
+  correctOrder: string[]
+  hintMessages: string[]
+  successMessage: string
+  reflectionQuestion: string
+  completeButtonLabel: string
+  resetButtonLabel: string
+  hintButtonLabel: string
+  continueButtonLabel: string
+  unlockSceneId: string
+}
+
+export interface TimelinePuzzleState {
+  attempts: number
+  hintLevel: number
+  completed: boolean
+}
+
+export interface TimelinePuzzlesFile {
+  timelinePuzzles: TimelinePuzzle[]
+  events: TimelineEvent[]
 }
 
 export interface InvestigationRecord {
@@ -156,6 +206,9 @@ export interface InvestigationRecord {
   causes: string[]
   symbolism: string
   completedAt: string
+  timelineProgress?: Record<string, TimelinePuzzleState>
+  characterUnderstanding?: number
+  collectedCardIds?: string[]
 }
 
 export interface GoogleSheetSubmission {

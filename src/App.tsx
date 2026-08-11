@@ -8,6 +8,7 @@ import { SceneNavigation } from './components/SceneNavigation'
 import { StudentIdScreen } from './components/StudentIdScreen'
 import { TeacherResultsPage } from './components/TeacherResultsPage'
 import { TeacherSummaryPage } from './components/TeacherSummaryPage'
+import { TimelinePuzzle } from './components/TimelinePuzzle'
 import { gameData, getSceneById } from './data'
 import { DialogueManager } from './game/DialogueManager'
 import {
@@ -27,6 +28,7 @@ import type {
   GoogleSheetSubmission,
   InvestigationRecord,
   ReleasePage,
+  TimelinePuzzleState,
 } from './types/game'
 
 function App() {
@@ -62,6 +64,7 @@ function GameApp() {
   const isSubmittingResult = useRef(gameState.submitted)
   const currentScene = getSceneById(gameState.currentScene)
   const reasoningScene = gameData.scenes.find((scene) => scene.mode === 'deduction')
+  const timelinePuzzle = gameData.timelinePuzzles.find((puzzle) => puzzle.id === currentScene?.id)
   const canOpenDeduction = Boolean(
     reasoningScene && gameState.unlockedScenes.includes(reasoningScene.id),
   )
@@ -143,6 +146,11 @@ function GameApp() {
           currentGameState.completedEvents,
           choice.completedEvent ? [choice.completedEvent] : [],
         ),
+        learningMetrics: {
+          characterUnderstanding:
+            currentGameState.learningMetrics.characterUnderstanding +
+            (choice.learningMetric?.characterUnderstanding ?? 0),
+        },
       }
       saveGameState(nextGameState)
       return nextGameState
@@ -163,10 +171,41 @@ function GameApp() {
     })
   }
 
+  const updateTimelineProgress = (
+    puzzleId: string,
+    progress: TimelinePuzzleState,
+    usedHint: boolean,
+  ) => {
+    const puzzle = gameData.timelinePuzzles.find((item) => item.id === puzzleId)
+
+    setGameState((currentGameState) => {
+      const nextGameState = {
+        ...currentGameState,
+        timelineProgress: {
+          ...currentGameState.timelineProgress,
+          [puzzleId]: progress,
+        },
+        hintsUsed: usedHint
+          ? addUniqueIds(currentGameState.hintsUsed, [`${puzzleId}:hint-${progress.hintLevel}`])
+          : currentGameState.hintsUsed,
+        unlockedScenes:
+          progress.completed && puzzle
+            ? addUniqueIds(currentGameState.unlockedScenes, [puzzle.unlockSceneId])
+            : currentGameState.unlockedScenes,
+        completedEvents:
+          progress.completed
+            ? addUniqueIds(currentGameState.completedEvents, [`${puzzleId}:completed`])
+            : currentGameState.completedEvents,
+      }
+      saveGameState(nextGameState)
+      return nextGameState
+    })
+  }
+
   const saveEnding = (submission: DeductionSubmission | null) => {
     const ending = submission?.endingId ?? null
     const investigationRecord = createInvestigationRecord(
-      gameState.studentId,
+      gameState,
       ending,
       submission?.answers ?? {},
     )
@@ -307,6 +346,27 @@ function GameApp() {
             scene={currentScene}
             onStartDialogue={startDialogue}
           />
+        ) : currentScene.mode === 'timeline' && timelinePuzzle ? (
+          <SceneView
+            overlay={
+              <TimelinePuzzle
+                events={gameData.timelineEvents}
+                progress={gameState.timelineProgress[timelinePuzzle.id] ?? {
+                  attempts: 0,
+                  hintLevel: 0,
+                  completed: false,
+                }}
+                puzzle={timelinePuzzle}
+                onContinue={() => goToScene(timelinePuzzle.unlockSceneId)}
+                onProgressChange={(progress, usedHint) =>
+                  updateTimelineProgress(timelinePuzzle.id, progress, usedHint)
+                }
+              />
+            }
+            placeholderImage={gameData.scenesUi.placeholderImage}
+            scene={currentScene}
+            onStartDialogue={startDialogue}
+          />
         ) : activeDialogueId ? (
           <SceneView
             overlay={
@@ -391,21 +451,24 @@ function GameApp() {
 }
 
 function createInvestigationRecord(
-  studentId: string | null,
+  gameState: { studentId: string | null; timelineProgress: InvestigationRecord['timelineProgress']; learningMetrics: { characterUnderstanding: number }; collectedCards: string[] },
   ending: string | null,
   answers: Record<string, string[]>,
 ): InvestigationRecord | null {
-  if (!studentId || !ending) {
+  if (!gameState.studentId || !ending) {
     return null
   }
 
   return {
-    studentId,
+    studentId: gameState.studentId,
     ending,
     suspect: getAnswerLabels(gameData.teacher.recordFields.suspectQuestionId, answers).join('、'),
     causes: getAnswerLabels(gameData.teacher.recordFields.causesQuestionId, answers),
     symbolism: getAnswerLabels(gameData.teacher.recordFields.symbolismQuestionId, answers).join('、'),
     completedAt: new Date().toISOString(),
+    timelineProgress: gameState.timelineProgress,
+    characterUnderstanding: gameState.learningMetrics.characterUnderstanding,
+    collectedCardIds: gameState.collectedCards,
   }
 }
 

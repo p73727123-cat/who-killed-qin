@@ -24,7 +24,7 @@ export function SceneView({
   const visibleInspection = activeInspection?.sceneId === scene.id ? activeInspection.hotspot : null
 
   const handleHotspot = (hotspot: SceneHotspotData) => {
-    if (hotspot.type === 'character' && hotspot.dialogueId) {
+    if (hotspot.dialogueId) {
       setActiveInspection(null)
       onStartDialogue(hotspot.dialogueId)
       return
