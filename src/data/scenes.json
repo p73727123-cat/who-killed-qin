@@ -76,17 +76,9 @@
           "id": "hotspot-market-bystander",
           "type": "character",
           "label": "市場的閒人",
-          "position": { "x": 74, "y": 49 },
+          "position": { "x": 27, "y": 63 },
           "dialogueId": "market-bystander-intro",
           "portraitImage": "/assets/portraits/villager_gossip.png"
-        },
-        {
-          "id": "hotspot-market-stall",
-          "type": "object",
-          "label": "市場攤位",
-          "position": { "x": 27, "y": 63 },
-          "image": "/assets/cards/event_market.png",
-          "interactionText": "攤位間仍留著當日人群聚集的空隙，爭執彷彿剛剛散去。"
         }
       ]
     },

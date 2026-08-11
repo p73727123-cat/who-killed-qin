@@ -43,6 +43,17 @@
       "relatedCharacterIds": ["patrol-officer"]
     },
     {
+      "id": "card-market-bystander",
+      "name": "市場的閒人",
+      "type": "character",
+      "image": "/assets/portraits/villager_gossip.png",
+      "description": "目擊巡警處置市場衝突的旁觀者。",
+      "clue": "巡警打斷秤桿、盤問秦得參後，市場的閒人才敢聚攏議論。",
+      "textualEvidence": "巡警離去後，幾個閒人圍著秦得參議論，卻無人敢替他出頭。",
+      "reasoningHint": "旁觀者的沉默與議論，補足了市場衝突如何擴散的現場碎片。",
+      "relatedCharacterIds": ["market-bystander", "patrol-officer", "qin-de-can"]
+    },
+    {
       "id": "card-scale",
       "name": "一桿秤仔",
       "type": "item",

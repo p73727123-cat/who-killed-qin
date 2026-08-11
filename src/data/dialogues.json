@@ -89,6 +89,9 @@
           "id": "market-bystander-record",
           "text": "記下市場閒人的證言。",
           "next": null,
+          "reward": {
+            "cardIds": ["card-market-bystander"]
+          },
           "completedEvent": "heard-market-bystander"
         }
       ]
